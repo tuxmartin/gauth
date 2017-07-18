@@ -125,7 +125,7 @@ func main() {
 	//prevTS := currentTS - 1
 	nextTS := currentTS + 1
 
-	fmt.Println("                               curr   next")
+	fmt.Println("                                     curr   next")
 	for _, record := range cfg {
 		name := record[0]
 		secret := normalizeSecret(record[1])
@@ -133,7 +133,7 @@ func main() {
 		currentToken := authCodeOrDie(secret, currentTS)
 		nextToken := authCodeOrDie(secret, nextTS)
 		//fmt.Printf("%-30s %s \033[31m\033[1m%s \033[0m\033[32m%s \033[0m\n", name, prevToken, currentToken, nextToken)
-		fmt.Printf("%-30s \033[31m\033[1m%s \033[0m\033[32m%s \033[0m\n", name, currentToken, nextToken)
+		fmt.Printf("%-36s \033[31m\033[1m%s \033[0m\033[32m%s \033[0m\n", name, currentToken,  nextToken)
 		// bash test:  echo -e "PREV \e[31m \e[1m CURR \e[0m \e[32m NEXT \e[0m"
 		// bash test:  echo -e "PREV \033[31m \033[1m CURR \033[0m \033[32m NEXT\033[0m"
 	}
