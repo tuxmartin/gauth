@@ -135,9 +135,8 @@ func main() {
 		currentToken := authCodeOrDie(secret, currentTS)
 		nextToken := authCodeOrDie(secret, nextTS)
 		//fmt.Printf("%-30s %s \033[31m\033[1m%s \033[0m\033[32m%s \033[0m\n", name, prevToken, currentToken, nextToken)
-		if l%6 != 0 {
-			fmt.Printf("%-36s \033[31m\033[1m%s \033[0m\033[32m%s \033[0m\n", name, currentToken,  nextToken)
-		} else {
+		fmt.Printf("%-36s \033[31m\033[1m%s \033[0m\033[32m%s \033[0m\n", name, currentToken,  nextToken)
+		if l%6 == 0 {
 			fmt.Printf("\n")
 		}
 		// bash test:  echo -e "PREV \e[31m \e[1m CURR \e[0m \e[32m NEXT \e[0m"
